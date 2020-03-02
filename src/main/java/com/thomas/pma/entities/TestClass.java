@@ -1,5 +1,5 @@
 package com.thomas.pma.entities;
 
-public class Test {
+public class TestClass {
 
 }

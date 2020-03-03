@@ -18,7 +18,7 @@ public class ProjectController {
 	ProjectRepository proRepo;
 	
 	@GetMapping("/new")
-	public String diplayForm(Model model) {
+	public String diplayProjectForm(Model model) {
 		
 		Project aProject = new Project();
 		

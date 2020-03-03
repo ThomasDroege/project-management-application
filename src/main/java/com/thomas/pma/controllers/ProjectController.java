@@ -1,5 +1,7 @@
 package com.thomas.pma.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,15 @@ public class ProjectController {
 	@Autowired
 	ProjectRepository proRepo;
 	
+	@GetMapping
+	public String displayProjects(Model model) {
+		
+		List<Project> projects = proRepo.findAll();
+		model.addAttribute("projectsList", projects);
+		
+		return "projects/list-projects";
+	}
+	
 	@GetMapping("/new")
 	public String diplayProjectForm(Model model) {
 		
@@ -32,8 +43,7 @@ public class ProjectController {
 		proRepo.save(project);
 		
 		// use a redirect to prevent duplicate submissions
-		return"redirect:/projects/new";
-		
+		return"redirect:/projects/new";	
 	}
 	
 	

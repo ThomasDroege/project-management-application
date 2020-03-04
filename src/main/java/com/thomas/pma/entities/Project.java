@@ -18,7 +18,8 @@ public class Project {
 	private String stage; //NOTSTARTED, COMPLETED, INPROGRESS
 	private String description;
 
-	@OneToMany(mappedBy="theProject")
+	// One Project can be done by many employees.
+	@OneToMany(mappedBy="project")
 	private List<Employee> employees;
 	
 	public Project() {
@@ -62,6 +63,14 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 	
 	

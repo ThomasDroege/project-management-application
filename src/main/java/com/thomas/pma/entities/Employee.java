@@ -1,6 +1,8 @@
 package com.thomas.pma.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,9 +20,12 @@ public class Employee {
 	private String lastname;
 	private String email;
 	
-	@ManyToOne
+	//FetchType: EAGER - loads all child classes associated with the parent class. Can slow down the application. LAZY: loads only the parent class.
+	//CascadeType: DETACH, MERGE, REMOVE, REFRESH, PERSIST or ALL of them - do the same action to the child class which had done to the parents class.
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST},
+			fetch = FetchType.LAZY)
 	@JoinColumn(name="project_id")
-	private Project theProject;
+	private Project project;
 	
 	public Employee() {
 		
@@ -56,6 +61,14 @@ public class Employee {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	

@@ -1,9 +1,6 @@
 package com.thomas.pma.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.thomas.pma.dao.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 //@Service
 public class EmployeeService {
@@ -18,11 +15,11 @@ public class EmployeeService {
 	
 	
 	//Constructor Injection
-	//  EmployeeRepository empRepo;
+	  IStaffRepository empRepo;
 	
-	//	public EmployeeService(EmployeeRepository empRepo) {
-	//		this.empRepo = empRepo;
-	//	}
+		public EmployeeService(@Qualifier("staffRepositoryImpl1") IStaffRepository empRepo) {
+			this.empRepo = empRepo;
+		}
 	
 	//	Setter Injection
 	//	EmployeeRepository empRepo;

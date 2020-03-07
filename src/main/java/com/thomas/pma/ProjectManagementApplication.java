@@ -1,17 +1,16 @@
 package com.thomas.pma;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.thomas.pma.dao.EmployeeRepository;
 import com.thomas.pma.dao.ProjectRepository;
-import com.thomas.pma.entities.Employee;
-import com.thomas.pma.entities.Project;
+import com.thomas.pma.springExample.Car;
+import com.thomas.pma.springExample.Doors;
+import com.thomas.pma.springExample.Engine;
+import com.thomas.pma.springExample.Tires;
 
 @SpringBootApplication
 public class ProjectManagementApplication {
@@ -25,6 +24,9 @@ public class ProjectManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectManagementApplication.class, args);
 	}
+	
+	
+	
 
 	// You can use this java code to populate your database. The more elegant way is to use the data.sql file
 	// But be aware with the GenerationType of employeeId and projectId. You need to switch from AUTO to IDENTITY 

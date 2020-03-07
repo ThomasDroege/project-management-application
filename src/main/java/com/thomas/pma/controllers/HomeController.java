@@ -16,10 +16,14 @@ import com.thomas.pma.dao.ProjectRepository;
 import com.thomas.pma.dto.ChartData;
 import com.thomas.pma.dto.EmployeeProject;
 import com.thomas.pma.entities.Project;
+import com.thomas.pma.springExample.Car;
 
 @Controller
 public class HomeController {
 
+	@Autowired
+	Car car;
+	
 	@Autowired
 	ProjectRepository proRepo;
 	

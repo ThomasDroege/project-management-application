@@ -12,7 +12,7 @@ import com.thomas.pma.springExample.Doors;
 import com.thomas.pma.springExample.Engine;
 import com.thomas.pma.springExample.Tires;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages= {"com.thomas.pma", "com.thomas.utils"})
 public class ProjectManagementApplication {
 	
 	@Autowired

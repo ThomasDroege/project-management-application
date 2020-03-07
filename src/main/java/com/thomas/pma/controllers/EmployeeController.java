@@ -16,9 +16,16 @@ import com.thomas.pma.entities.Employee;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-	@Autowired
 	EmployeeRepository empRepo;
 	
+	
+	
+	@Autowired
+	public void setEmpRepo(EmployeeRepository empRepo) {
+		this.empRepo = empRepo;
+	}
+
+
 	@GetMapping
 	public String displayEmployees(Model model) {
 		

@@ -3,6 +3,9 @@ FROM ubuntu-jdk
 MAINTAINER Thomas Dröge "thomasdroege@gmx.de"
 
 ENV version=docker
+ENV dbuser
+ENV dbpass
+ENV jdbcurl
 
 WORKDIR /usr/local/bin
 

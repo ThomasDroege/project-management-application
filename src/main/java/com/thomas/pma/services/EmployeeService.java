@@ -1,33 +1,32 @@
 package com.thomas.pma.services;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import java.util.List;
 
-//@Service
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.thomas.pma.dao.EmployeeRepository;
+import com.thomas.pma.dto.EmployeeProject;
+import com.thomas.pma.entities.Employee;
+
+@Service
 public class EmployeeService {
 	
+	@Autowired
+	EmployeeRepository empRepo;
 	
 	
-	//Field Injection
-	//	@Autowired
-	//	EmployeeRepository empRepo;
-	 
+	public Employee save(Employee employee) {
+		return empRepo.save(employee);
+	}
 	
-	
-	
-	//Constructor Injection
-	  IStaffRepository empRepo;
-	
-		public EmployeeService(@Qualifier("staffRepositoryImpl1") IStaffRepository empRepo) {
-			this.empRepo = empRepo;
-		}
-	
-	//	Setter Injection
-	//	EmployeeRepository empRepo;
-	
-	//	@Autowired
-	//	public void setEmpRepo(EmployeeRepository empRepo) {
-	//		this.empRepo = empRepo;
-	//	}
+	public List<Employee> getAll(){
+		return empRepo.findAll();
+	}
+
+	public List<EmployeeProject> employeeProjects(){
+		return empRepo.employeeProjects();
+	}
 	
 	
 	

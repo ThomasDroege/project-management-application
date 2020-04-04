@@ -44,7 +44,7 @@ public class EmployeeController {
 	public String createEmployee(Employee employee, Model model) {
 		empService.save(employee);
 		
-		return "redirect:/employees/new";
+		return "redirect:/employees";
 	}
 	
 

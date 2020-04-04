@@ -39,6 +39,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
+		// hasRole: the same like hasAuthority, with the difference that you need to write role = 'ROLE_ADMIN' instead of
+		// role = 'ADMIN' as SQL Statement
+		//.antMatchers("/projects/new").hasRole("ADMIN")
+		
 		.antMatchers("/projects/new").hasRole("ADMIN")
 		.antMatchers("/projects/save").hasRole("ADMIN")
 		.antMatchers("/employees/new").hasRole("ADMIN")

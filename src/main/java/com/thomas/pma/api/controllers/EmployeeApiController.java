@@ -1,5 +1,7 @@
 package com.thomas.pma.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -36,18 +38,18 @@ public class EmployeeApiController {
 	
 	@PostMapping(consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@RequestBody Employee employee){
+	public void create(@RequestBody @Valid Employee employee){
 		 empRepo.save(employee);
 	}
 	
 	@PutMapping(consumes = "application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Employee employee) {
+	public void update(@RequestBody @Valid Employee employee) {
 		 empRepo.save(employee);		
 	}
 	
 	@PatchMapping(path="/{id}", consumes = "application/json")
-	public Employee partialUpdate(@PathVariable("id") long id, @RequestBody Employee patchEmployee) {
+	public Employee partialUpdate(@PathVariable("id") long id, @RequestBody @Valid Employee patchEmployee) {
 		Employee emp = empRepo.findById(id).get();
 		
 		if(patchEmployee.getEmail() != null) {

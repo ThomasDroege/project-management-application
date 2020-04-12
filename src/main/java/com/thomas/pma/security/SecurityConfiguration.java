@@ -43,10 +43,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// role = 'ADMIN' as SQL Statement
 		//.antMatchers("/projects/new").hasRole("ADMIN")
 		
-		.antMatchers("/projects/new").hasRole("ADMIN")
-		.antMatchers("/projects/save").hasRole("ADMIN")
-		.antMatchers("/employees/new").hasRole("ADMIN")
-		.antMatchers("/employees/save").hasRole("ADMIN")
+		
+		.antMatchers("/projects/new").hasAuthority("ADMIN")
+		.antMatchers("/projects/save").hasAuthority("ADMIN")
+		.antMatchers("/employees/new").hasAuthority("ADMIN")
+		.antMatchers("/employees/save").hasAuthority("ADMIN")
 		.antMatchers("/","/**").permitAll()
 		.and()
 		.formLogin();

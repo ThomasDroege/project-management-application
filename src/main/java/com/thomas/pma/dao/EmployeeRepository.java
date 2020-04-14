@@ -18,6 +18,12 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 			"FROM employee e left join project_employee pe ON pe.employee_id=e.employee_id " + 
 			"GROUP BY e.firstname, e.lastname ORDER BY 3 DESC")
 	public List<EmployeeProject> employeeProjects();
+	
+	public Employee findByEmail(String value);
+	
+	
+	//another method for e.g. validation rules in UniqueValidator class
+	public Employee findEmployeeByEmployeeId(long id);
 
 
 }

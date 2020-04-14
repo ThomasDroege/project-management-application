@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace = "layouts :: header"></head>
+	
+	<body>
+		<nav th:replace = "layouts :: navbar"></nav>
+	
+		<div class="container">
+			<form th:action="@{/employees/save}" th:object="${employee}" method="POST">
+				<table>
+					<tr>
+						<td><input type="text" placeholder="First Name" th:field="${employee.firstname}"></td>
+						<td th:if="${#fields.hasErrors('firstname')}" th:errors="${employee.firstname}">Name Error</td>
+					</tr>
+				
+				
+            		<tr>
+            			<td><input type="text" placeholder="Last Name" th:field="${employee.lastname}"></td>
+            			<td th:if="${#fields.hasErrors('lastname')}" th:errors="${employee.lastname}">Name Error</td>
+            		</tr>
+				
+			
+					<tr>
+            			<td><input type="text" placeholder="Email" th:field="${employee.email}"></td>
+            			<td th:if="${#fields.hasErrors('email')}" th:errors="${employee.email}">Email Error</td>
+            		</tr>
+				
+					
+					<tr>
+						<td><button type="submit">Add Employee</button></td>
+					</tr>	
+				
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

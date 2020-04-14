@@ -28,16 +28,16 @@ public class Employee {
 	private long employeeId;
 
 	//ValidationRule
-	@NotNull
-	@Size(min = 2, max = 50)
+	//@NotNull
+	//@Size(min = 2, max = 50)
 	private String firstname;
 	
-	@NotNull
-	@Size(min = 1, max = 50)
+	//@NotNull
+	//@Size(min = 1, max = 50)
 	private String lastname;
 	
-	@NotNull
-	@Email
+	//@NotNull
+	//@Email
 	@Column(unique = true)
 	private String email;
 	

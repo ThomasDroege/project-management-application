@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.thomas.pma.entities.Employee;
 import com.thomas.pma.services.EmployeeService;
 
-@Controller
 @RequestMapping("/employees")
-public class EmployeeController {
+public class EmployeeController_FormValidationDoesNotWork {
 
 	@Autowired
 	EmployeeService empService;
@@ -44,9 +43,20 @@ public class EmployeeController {
 	}
 	
 	
+	@GetMapping("/")
+	public String errorForm(Model model, Employee employee) {
+		return "employees/list-employees";
+	}
+	
 	
 	@PostMapping("/save")
-	public String createEmployee(Employee employee, Model model) {
+	public String createEmployee(@Valid Employee employee, Model model, BindingResult bindingResult) {
+		
+		
+		if(bindingResult.hasErrors()) {
+			empService.save(employee);
+			return "employees/list-employees";
+		}
 	
 		empService.save(employee);
 		return "redirect:/employees";
